@@ -24,22 +24,24 @@ angular.module('linkify', [])
 
         // Twitter
         if (type === 'twitter') {
-          _text = _text.replace(/(|\s)*@([\u00C0-\u1FFF\u2C00-\uD7FF\w]+)/g, '$1<a href="https://twitter.com/$2" target="_blank">@$2</a>');
-          _text = _text.replace(/(^|\s)*#([\u00C0-\u1FFF\u2C00-\uD7FF\w]+)/g, '$1<a href="https://twitter.com/search?q=%23$2" target="_blank">#$2</a>');
-        }
-
-
-        // Github
-        if (type === 'github') {
-          _text = _text.replace(/(|\s)*@(\w+)/g, '$1<a href="https://github.com/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(|\s)*@([\w\-]+)/g, '$1<a href="https://twitter.com/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(^|\s)*#([^#]+)/g, '$1<a href="https://twitter.com/search?q=%23$2" target="_blank">#$2</a>');
         }
 
 
         // Instagram
         if (type === 'instagram') {
-          _text = _text.replace(/(|\s)*@([\u00C0-\u1FFF\u2C00-\uD7FF\w]+)/g, '$1<a href="https://instagram.com/$2" target="_blank">@$2</a>');
-          _text = _text.replace(/(^|\s)*#([\u00C0-\u1FFF\u2C00-\uD7FF\w]+)/g, '$1<a href="https://instagram.com/explore/tags/$2" target="_blank">#$2</a>');
+          _text = _text.replace(/(|\s)*@([\w\-]+)/g, '$1<a href="https://instagram.com/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(^|\s)*#([^#]+)/g, '$1<a href="https://instagram.com/explore/tags/$2" target="_blank">#$2</a>');
         }
+
+
+        // Instagram
+        if (type === 'weibo') {
+          _text = _text.replace(/(|\s)*@([\u4e00-\u9fa5\w-]+)/g, '$1<a href="http://weibo.com/n/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(^|\s)*#([^#]+)#/g, '$1<a href="http://huati.weibo.com/k/$2" target="_blank">#$2#</a>');
+        }
+
 
         return _text;
       }
