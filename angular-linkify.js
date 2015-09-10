@@ -24,15 +24,15 @@ angular.module('linkify', [])
 
         // Twitter
         if (type === 'twitter') {
-          _text = _text.replace(/(|\s)*@([\w\-]+)/g, '$1<a href="https://twitter.com/$2" target="_blank">@$2</a>');
-          _text = _text.replace(/(^|\s)*#([^#]+)/g, '$1<a href="https://twitter.com/search?q=%23$2" target="_blank">#$2</a>');
+          _text = _text.replace(/(|\s)*@([\w]+)/g, '$1<a href="https://twitter.com/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(^|\s)*#([^#\s!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?]+)/g, '$1<a href="https://twitter.com/search?q=%23$2" target="_blank">#$2</a>');
         }
 
 
         // Instagram
         if (type === 'instagram') {
-          _text = _text.replace(/(|\s)*@([\w\-]+)/g, '$1<a href="https://instagram.com/$2" target="_blank">@$2</a>');
-          _text = _text.replace(/(^|\s)*#([^#]+)/g, '$1<a href="https://instagram.com/explore/tags/$2" target="_blank">#$2</a>');
+          _text = _text.replace(/(|\s)*@([\w]+)/g, '$1<a href="https://instagram.com/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(^|\s)*#([^#\s!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?]+)/g, '$1<a href="https://instagram.com/explore/tags/$2" target="_blank">#$2</a>');
         }
 
 
