@@ -31,7 +31,7 @@ angular.module('linkify', [])
 
         // Instagram
         if (type === 'instagram') {
-          _text = _text.replace(/(|\s)*@([\w]+)/g, '$1<a href="https://instagram.com/$2" target="_blank">@$2</a>');
+          _text = _text.replace(/(|\s)*@([\w\.]+)/g, '$1<a href="https://instagram.com/$2" target="_blank">@$2</a>');
           _text = _text.replace(/(^|\s)*#([^#\s!@#$%^&*()+\-=\[\]{};':"\\|,.<>\/?\u3002\uff1b\uff0c\uff1a\u201c\u201d\uff08\uff09\u3001\uff1f\u300a\u300b]+)/g, '$1<a href="https://instagram.com/explore/tags/$2" target="_blank">#$2</a>');
         }
 
