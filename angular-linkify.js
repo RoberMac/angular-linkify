@@ -38,7 +38,7 @@ angular.module('linkify', [])
         // Weibo
         if (type === 'weibo') {
           _text = _text.replace(/(|\s)*@([\u4e00-\u9fa5\w-]+)/g, '$1<a href="http://weibo.com/n/$2" target="_blank">@$2</a>');
-          _text = _text.replace(/(^|\s)*#([^#]+)#/g, '$1<a href="http://huati.weibo.com/k/$2" target="_blank">#$2#</a>').replace(/\[[\u4e00-\u9fa5]*\]/g, '');
+          _text = _text.replace(/\[([\u4e00-\u9fa5]*\])#/g, '#[$1').replace(/(^|\s)*#([^#]+)#/g, '$1<a href="http://huati.weibo.com/k/$2" target="_blank">#$2#</a>');
         }
 
         return _text;
